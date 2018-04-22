@@ -1,0 +1,47 @@
+.main {
+  border: 1px solid;
+  margin: 25px;
+  position: absolute;
+  height: auto;
+}
+
+.header {
+  color: #A42A21;
+  font-size: large;
+}
+
+.sub-header {
+  color: #A42A21;
+  font-size: small;
+}
+
+.m-top22 {
+  margin-top: 22px;
+}
+
+.m-top55 {
+  margin-top: 55px;
+}
+
+.mBottom-10{
+  margin-bottom: 10px;
+}
+
+.margin-5 {
+  margin: 5px;
+}
+
+.box-container {
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  background-color: white;
+  padding-top: 5px;
+}
+
+.sub-container {
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  margin: 10px;
+  padding: 10px;
+}

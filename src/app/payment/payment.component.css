@@ -1,0 +1,99 @@
+/* Style the tab */
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f7f7f9;
+    width: 30%;
+    height: 300px;
+    margin-top: 10px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+    border: 1px solid #DCE1E5;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #6C1812;
+    color: white;
+    border: none;
+}
+
+/* .tab button.active::after {
+  content: '';
+  position: absolute;
+  left: 30%;
+  top: 43%;
+  margin-top: -14px;
+  border-left: 0;
+  border-bottom: 13px solid transparent;
+  border-top: 13px solid transparent;
+  border-left: 10px solid #6C1812;
+} */
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    border-left: none;
+    height: 300px;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.pay-mode {
+  padding: 10px;
+}
+
+.bank span {
+  width: 112px;
+  height: 32px;
+  display: block;
+  float: right;
+  margin-top: 0px;
+  margin-left: 5px;
+}
+
+.bank li {
+  border: 1px #d1d1d1 solid;
+  margin: 5px;
+}
+
+.hdfc {
+  background: url(https://staticgw3.paytm.in/1.15.1.2/images/web/bank/hdfc.png) no-repeat;
+  background-size: 112px 26px;
+}
+
+.sbi {
+  background: url(https://staticgw1.paytm.in/1.15.1.2/images/web/bank/sbi.png) no-repeat;
+  background-size: 112px 26px;
+}
+
+.axis {
+  background: url(https://staticgw4.paytm.in/1.15.1.2/images/web/bank/axis.png) no-repeat;
+  background-size: 112px 26px;
+}
+
+.icici {
+  background: url(https://staticgw2.paytm.in/1.15.1.2/images/web/bank/icici.png) no-repeat;
+  background-size: 112px 26px;
+}

@@ -1,0 +1,190 @@
+<div class="container main">
+	<div class="row">
+		<div class="col-sm-8">
+			<span class="header">Cashier</span>
+			<div class="row">
+				<div class="col-sm-10 sub-container">
+					<div class="row">
+						<div class="col-sm-3">
+							<button type="button" class="btn-link" (click)="goToVoucher()">1. Enter Amount</button>
+						</div>
+						<div class="col-sm-4">
+							<span class="sub-header">2. Choose Payment Method</span>
+						</div>
+						<div class="col-sm-5 text-right" *ngIf="selectedVoucher">
+							<span>Amount: &#8377; {{selectedVoucher.customPrice}}</span>
+						</div>
+					</div>
+
+					<div class="tab">
+					  <button class="tablinks" (click)="changePaymode($event, 'cc')" [class.active]="paymode === CC">Credit Card</button>
+					  <button class="tablinks" (click)="changePaymode($event, 'dc')" [class.active]="paymode === DC">Debit Card</button>
+					  <button class="tablinks" (click)="changePaymode($event, 'nb')" [class.active]="paymode === NB">Net Banking</button>
+					</div>
+
+					<div class="tabcontent" *ngIf="paymode === CC">
+					  <div class="pay-mode">
+							<div class="row">
+								<div class="col-sm-8">
+									<div class="form-group">
+								    <span>Enter Credit Card Number</span>
+										<input class="form-control"
+										OnlyNumber="true"
+										placeholder="Enter Credit Card Number"
+										[(ngModel)]="creditCard.cardNumber"
+										(keypress)="clearError()">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+								    <span>EXPIRY DATE</span>
+										<div class="form-inline">
+											<select class="form-control" [(ngModel)]="creditCard.expDate" (change)="clearError()">
+												<option value="0">MM</option>
+												<option value="1">01</option>
+												<option value="2">02</option>
+												<option value="3">03</option>
+												<option value="4">04</option>
+												<option value="5">05</option>
+											</select>
+											<select class="form-control" [(ngModel)]="creditCard.expYear" (change)="clearError()">
+												<option value="0">YY</option>
+												<option value="20">2020</option>
+												<option value="19">2019</option>
+												<option value="18">2018</option>
+											</select>
+										</div>
+								  </div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+								    <span>CVV/SECURITY CODE</span>
+								    <input class="form-control"
+										OnlyNumber="true"
+										placeholder="Enter CVV"
+										[(ngModel)]="creditCard.cvvNumber"
+										(keypress)="clearError()">
+								  </div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tabcontent" *ngIf="paymode === DC">
+						<div class="pay-mode">
+							<div class="row">
+								<div class="col-sm-8">
+									<div class="form-group">
+								    <span>Enter Debit Card Number</span>
+										<input class="form-control"
+										OnlyNumber="true"
+										placeholder="Enter Credit Card Number"
+										[(ngModel)]="debitCard.cardNumber"
+										(keypress)="clearError()">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+								    <span>EXPIRY DATE</span>
+										<div class="form-inline">
+											<select class="form-control" [(ngModel)]="debitCard.expDate" (change)="clearError()">
+												<option value="0">MM</option>
+												<option value="1">01</option>
+												<option value="2">02</option>
+												<option value="3">03</option>
+												<option value="4">04</option>
+												<option value="5">05</option>
+											</select>
+											<select class="form-control" [(ngModel)]="debitCard.expYear" (change)="clearError()">
+												<option value="0">YY</option>
+												<option value="20">2020</option>
+												<option value="19">2019</option>
+												<option value="18">2018</option>
+											</select>
+										</div>
+								  </div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+								    <span>CVV</span>
+								    <input class="form-control"
+										OnlyNumber="true"
+										placeholder="Enter CVV"
+										[(ngModel)]="debitCard.cvvNumber"
+										(keypress)="clearError()">
+								  </div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tabcontent" *ngIf="paymode === NB">
+						<div class="pay-mode">
+							<div class="row">
+								<div class="col-sm-8">
+									<div class="form-group">
+								    <span>Select Bank</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-12">
+									<ul class="bank list-inline">
+									  <li>
+											<input type="radio" name="paymode" (click)="selectBank('hdfc')">
+											<span class="hdfc"></span>
+									  </li>
+									  <li>
+									    <input type="radio" name="paymode" (click)="selectBank('sbi')">
+									    <span class="sbi"></span>
+									  </li>
+									  <li>
+									    <input type="radio" name="paymode" (click)="selectBank('icici')">
+									    <span class="icici"></span>
+									  </li>
+										<li>
+									    <input type="radio" name="paymode" (click)="selectBank('axis')">
+									    <span class="axis"></span>
+									  </li>
+									</ul>
+								</div>
+							</div>
+							<div class="row" *ngIf="selectedBank">
+								<div class="form-row">
+							    <div class="form-group col-md-6">
+							      <span>Customer ID</span>
+							      <input class="form-control"
+										OnlyNumber="true"
+										placeholder="Customer ID"
+										(keypress)="clearError()"
+										[(ngModel)]="bankingDetail.customerID">
+							    </div>
+							    <div class="form-group col-md-6">
+							      <span>Routing ID</span>
+							      <input class="form-control"
+										OnlyNumber="true"
+										placeholder="Routing ID"
+										(keypress)="clearError()"
+										[(ngModel)]="bankingDetail.routingID">
+							    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-2">
+			<div class="row pull-right">
+				<button type="button" class="btn btn-success margin-5" (click)="paynow()">PAY NOW</button>
+			</div>
+		</div>
+	</div>
+</div>

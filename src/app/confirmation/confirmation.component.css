@@ -1,0 +1,21 @@
+.confirm-message {
+  color: green;
+  font-size: large;
+  font-weight: 500;
+}
+
+.processes {
+  color: green;
+  margin-bottom: 5px;
+}
+
+.text {
+  color: #26363D;
+  font-size: small;
+  font-weight: 400;
+}
+
+.banner-bottom {
+  width: 100%;
+  margin-top: 100px;
+}
