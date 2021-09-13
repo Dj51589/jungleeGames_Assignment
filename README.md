@@ -68,7 +68,4 @@ npm install
     tslint.json         --> Linting configuration for TSLint together with Codelyzer, used when running ng lint. Linting helps keep your code style consistent.
 
 
-## Contact Me
-- Dheeraj Jaiswal
-- jdheeraj32@yahoo.com
-- 9810550702
+
